@@ -1,0 +1,29 @@
+.description-text{
+font-size: 20px;
+}
+
+.bottom{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.ruleRow{
+    background-color: rgb(128, 128, 139);
+    height: 10%;
+    margin-top: 0 auto;
+    margin-bottom: 0 auto;
+}
+
+.answer-button{
+    font-size: 22px;
+}
+
+.question-text{
+    font-size: 40px;
+}
+
+.score-text{
+    font-size: larger;
+}
