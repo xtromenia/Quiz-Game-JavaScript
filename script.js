@@ -40,9 +40,7 @@ class Game {
             questionCol.appendChild(question);
             gameField.appendChild(questionRow);
             
-          
-        // let rng = Math.floor(Math.random * this.questions.length);
-        for (let i = 1; i < this.questions[1].length; i++) {   
+        for (let i = 2; i < this.questions[1].length; i++) {   
             
             if(this.questions[i]!==undefined){
             let answerRow = document.createElement('div');
@@ -54,12 +52,18 @@ class Game {
             answer.innerHTML = this.questions[1,i];
             answerRow.appendChild(answerCol);
             answerCol.appendChild(answer);
-
             gameField.appendChild(answerRow);
+
+            answer.onclick = () => {
+                if(answer.innerHTML == this.questions[i,1]){
+                    this.score+=10;
+                }
+                this.ClearGame();
+                this.PrintQuestion();
+                this.PrintScore();
+              }
             }
         }
-
-        this.PrintScore();
     }
 
     PrintScore(){
@@ -70,7 +74,6 @@ class Game {
         scoreRow.className = 'row text-center';
         let scoreCol = document.createElement('div');
         scoreCol.className = 'col-12';
-
         scoreRow.appendChild(scoreCol);
         scoreCol.appendChild(scoreText);
         gameField.appendChild(scoreRow);
@@ -78,7 +81,7 @@ class Game {
 }
 
 function GetQuestions(){
-    let questionList = ['Sveriges Huvudstad?','Stockholm', 'Uppsala', 'Vänersborg', 'Brålanda']; 
+    let questionList = ['Sveriges Huvudstad?','Stockholm', 'Uppsala', 'Vänersborg', 'Brålanda','Stockholm']['Kennys Efternamn?','Stockholm', 'Uppsala', 'Vänersborg', 'Brålanda','Stockholm']; 
     return questionList;
 }
 
@@ -90,6 +93,8 @@ startButton.onclick = () =>{
     game.ClearGame();
     game.PrintMenu();
 }
+
+
 
 
 
